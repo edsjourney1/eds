@@ -83,11 +83,11 @@ main input[type="radio"] {
   bottom: 20px;
   right: 40px;
 }
-.fieldset.form-fieldset-wrapper{
+fieldset.form-fieldset-wrapper{
   border:none;
   padding:0
 }
-.fieldset.form-fieldset-wrapper legend.field-label{
+fieldset.form-fieldset-wrapper legend.field-label{
   font-size: 36px;
   font-weight:600;
 }
