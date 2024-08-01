@@ -136,9 +136,23 @@ function createButton(fd) {
   button.dataset.redirect = fd.Extra || '';
   button.id = fd.Id;
   button.name = fd.Name;
+  button.addEventListener("click", nextFunc);
   wrapper.replaceChildren(button);
   return wrapper;
 }
+let currentFieldsetIndex = 0;
+function nextFunc(){
+  console.log("clicked");
+  const fieldsets = document.querySelectorAll('fieldset');
+  fieldsets[currentFieldsetIndex].classList.remove('active');
+  currentFieldsetIndex++;
+  if(currentFieldsetIndex >= fieldsets.length){
+    currentFieldsetIndex=0;
+  }
+  fieldsets[currentFieldsetIndex].classList.add('active');
+}
+
+
 function createSubmit(fd) {
   const wrapper = createButton(fd);
   return wrapper;
@@ -326,9 +340,16 @@ async function createForm(formURL) {
     handleSubmit(form);
   });
   decorateFormFields(form);
+  addActiveClassToFirstFieldset(form);
   return form;
 }
-
+//new function for adding active class to the first fieldset
+function addActiveClassToFirstFieldset(form){
+  const firstfieldset = form.querySelector('fieldset');
+  if(firstfieldset){
+    firstfieldset.classList.add('active');
+  }
+}
 export default async function decorate(block) {
   const formLink = block.querySelector('a[href$=".json"]');
   if (formLink) {

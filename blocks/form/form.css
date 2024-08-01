@@ -90,4 +90,11 @@ fieldset.form-fieldset-wrapper{
 fieldset.form-fieldset-wrapper legend.field-label{
   font-size: 36px;
   font-weight:600;
+  margin-bottom:50px;
+}
+fieldset{
+  display: none;
+}
+fieldset.active{
+  display: block;
 }
