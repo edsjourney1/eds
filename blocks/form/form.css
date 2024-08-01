@@ -78,10 +78,17 @@ main input[type="radio"] {
   max-height: 600px;
     height: calc(100vh - 100px);
 }
-.form-submit-wrapper.form-submit.field-wrapper{
+.form-submit-wrapper.form-submit.field-wrapper,  .form-next{
   position: absolute;
   bottom: 20px;
   right: 40px;
+}
+.form-submit-wrapper.form-submit.field-wrapper button,  .form-next button{
+  background-color: #11c7cc;
+  color: #000048;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 14px 24px;
 }
 fieldset.form-fieldset-wrapper{
   border:none;
@@ -98,3 +105,7 @@ fieldset{
 fieldset.active{
   display: block;
 }
+fieldset:last-child .form-next{
+  display: none;
+}
+#submit{display: none;}
