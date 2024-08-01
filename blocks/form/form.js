@@ -140,18 +140,45 @@ function createButton(fd) {
   wrapper.replaceChildren(button);
   return wrapper;
 }
+//let currentFieldsetIndex = 0;
+// function nextFunc(){
+//   console.log("clicked");
+//   const fieldsets = document.querySelectorAll('fieldset');
+//   fieldsets[currentFieldsetIndex].classList.remove('active');
+//   currentFieldsetIndex++;
+//   if(currentFieldsetIndex >= fieldsets.length){
+//     currentFieldsetIndex=0;
+//   }
+//   fieldsets[currentFieldsetIndex].classList.add('active');
+// }
 let currentFieldsetIndex = 0;
-function nextFunc(){
+
+function nextFunc() {
   console.log("clicked");
   const fieldsets = document.querySelectorAll('fieldset');
   fieldsets[currentFieldsetIndex].classList.remove('active');
   currentFieldsetIndex++;
-  if(currentFieldsetIndex >= fieldsets.length){
-    currentFieldsetIndex=0;
+  if (currentFieldsetIndex >= fieldsets.length) {
+    currentFieldsetIndex = 0;
   }
   fieldsets[currentFieldsetIndex].classList.add('active');
+  // Check if the current fieldset is the last one and show the separate div if it is
+  if (isLastFieldset(fieldsets[currentFieldsetIndex])) {
+    document.getElementById('submit').style.display = 'block';
+  } else {
+    document.getElementById('submit').style.display = 'none';
+  }
 }
 
+
+
+function isLastFieldset(fieldset) {
+
+  const fieldsets = document.querySelectorAll('fieldset');
+
+  return fieldset === fieldsets[fieldsets.length - 1];
+
+}
 
 function createSubmit(fd) {
   const wrapper = createButton(fd);
