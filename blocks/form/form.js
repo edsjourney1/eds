@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { sampleRUM } from '../../scripts/lib-franklin.js';
 import decorateFieldset from './fieldset.js';
 
@@ -47,7 +48,7 @@ async function submitForm(form) {
     });
     if (response.ok) {
       sampleRUM('form:submit');
-      window.location.href = form.dataset?.redirect || 'thankyou';
+      window.location.href = '/thankyou.html';
     } else {
       const error = await response.text();
       throw new Error(error);
@@ -132,7 +133,9 @@ function createButton(fd) {
   const button = document.createElement('button');
   button.textContent = fd.Label;
   button.type = fd.Type;
-  button.classList.add('button');
+  button.classList.add('btn-info');
+  button.classList.add('btn');
+  button.classList.add('btn-lg');
   button.dataset.redirect = fd.Extra || '';
   button.id = fd.Id;
   button.name = fd.Name;
@@ -140,7 +143,8 @@ function createButton(fd) {
   wrapper.replaceChildren(button);
   return wrapper;
 }
-//let currentFieldsetIndex = 0;
+
+// let currentFieldsetIndex = 0;
 // function nextFunc(){
 //   console.log("clicked");
 //   const fieldsets = document.querySelectorAll('fieldset');
@@ -154,9 +158,9 @@ function createButton(fd) {
 let currentFieldsetIndex = 0;
 
 function nextFunc() {
-  console.log("clicked");
   const fieldsets = document.querySelectorAll('fieldset');
   fieldsets[currentFieldsetIndex].classList.remove('active');
+  // eslint-disable-next-line no-plusplus
   currentFieldsetIndex++;
   if (currentFieldsetIndex >= fieldsets.length) {
     currentFieldsetIndex = 0;
@@ -170,14 +174,9 @@ function nextFunc() {
   }
 }
 
-
-
 function isLastFieldset(fieldset) {
-
   const fieldsets = document.querySelectorAll('fieldset');
-
   return fieldset === fieldsets[fieldsets.length - 1];
-
 }
 
 function createSubmit(fd) {
@@ -371,9 +370,9 @@ async function createForm(formURL) {
   return form;
 }
 //new function for adding active class to the first fieldset
-function addActiveClassToFirstFieldset(form){
+function addActiveClassToFirstFieldset(form) {
   const firstfieldset = form.querySelector('fieldset');
-  if(firstfieldset){
+  if (firstfieldset) {
     firstfieldset.classList.add('active');
   }
 }

@@ -50,8 +50,20 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
-  background-image: url("/DAM/pexels-photo-255379.jpg");
+  background-image: url("/DAM/pexels-negativespace-34577.jpg");
+  position: relative;
+  z-index:1;
+  background-size: cover
 }
+
+/* body:before{
+  z-index:-1;
+  position:absolute;
+  left:0;
+  top:0;
+  content: url("/DAM/pexels-creationsbyfaik-1025469.jpg");
+  opacity:0.4;
+} */
 
 body.appear {
   display: unset;
@@ -108,7 +120,7 @@ pre {
 
 /* buttons */
 
-a.button:any-link, button {
+/* a.button:any-link, button {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
@@ -126,7 +138,7 @@ a.button:any-link, button {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 30px;
-}
+} */
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
   background-color: var(--link-hover-color);
@@ -224,6 +236,8 @@ main img {
   .section > div {
     max-width: 1200px;
     margin: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    min-height:350px;
   }
 }
 
