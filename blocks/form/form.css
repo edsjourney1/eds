@@ -78,7 +78,7 @@ main select {
 .form.block {
   background: transparent;
   padding: 40px;
-  height: 350px;
+  min-height: 450px;
   color:#fff;
   position: relative;
 }
